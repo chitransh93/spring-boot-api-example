@@ -1,10 +1,13 @@
-name: CI
+name: Gradle-CI
+#Triggers: On push and PR:
 on:
   push:
     branches: [master]
   pull_request:
     branches: [master]
+#Jobs: Mention all jobs to run.
 jobs:
+#build: Name of the job. E.g, build, build_and_test
   build:
     runs-on: ubuntu-latest
     steps:
@@ -20,5 +23,5 @@ jobs:
       - name: Archive test report
         uses: actions/upload-artifact@v2
         with:
-          name: Test report
+          name: test-report
           path: build/reports/tests/test
